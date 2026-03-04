@@ -1,14 +1,14 @@
 package org.iesvdm.restapiecommercejpa.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDateTime;
 
-@Data
+@Getter @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,10 +29,12 @@ public class CartItem {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
+    @OnDelete(action = OnDeleteAction.CASCADE) // elimina dependencias en la tabla cart_item antes de proceder al borrado del producto.
     private Product product;
 
 }

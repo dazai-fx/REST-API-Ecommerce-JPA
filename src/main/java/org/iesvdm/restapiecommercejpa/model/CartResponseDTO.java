@@ -13,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CartResponseDTO {
+
     private List<CartItem> items;
     private BigDecimal totalCart;
 }
