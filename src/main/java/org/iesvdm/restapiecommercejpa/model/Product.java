@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 @Entity
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // que diferencia hay entre identity y auto?
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Long id;
     private String name;
     private String descrip;
